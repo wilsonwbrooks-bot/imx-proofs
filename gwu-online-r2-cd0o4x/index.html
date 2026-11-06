@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>GWU Online Billboards</title>
 <style>
-/* View-only copy of Client Proof — Round 2: no decisions, comments, markup or sign-off. No external fonts or scripts. */
+/* Public client proof: view the boards, then answer per board through a pre-filled Airtable form ("Client Submit") that opens in a new tab. No external fonts. */
 :root{
   --ground:#f6f5f3; --sheet:#ffffff; --ink:#1d1b1a; --muted:#5d5854; --rule:#dedad5; --red:#b5121b; --mat:#ebe9e5;
   --display:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -30,7 +30,7 @@ section.part{margin-top:36px}
 section.part > h2{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.15;margin:0}
 section.part > p.intro{max-width:80ch;color:var(--muted);margin:6px 0 0;font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(600px,100%),1fr));gap:24px;margin-top:18px}
-.card{background:var(--sheet);border:1px solid var(--rule);border-radius:8px;min-width:0;overflow:hidden;padding-bottom:16px}
+.card{background:var(--sheet);border:1px solid var(--rule);border-radius:8px;min-width:0;overflow:hidden;display:flex;flex-direction:column}
 .card-h{display:flex;gap:10px;align-items:baseline;padding:12px 16px 8px}
 .num{font-family:var(--display);font-weight:800;font-size:20px;line-height:1;color:var(--muted);font-variant-numeric:tabular-nums}
 .ttl{font-family:var(--display);font-weight:700;font-size:14px;line-height:1.3;min-width:0;color:var(--muted);margin:0}
@@ -44,10 +44,21 @@ section.part > p.intro{max-width:80ch;color:var(--muted);margin:6px 0 0;font-siz
 .open{font-family:var(--display);font-weight:500;font-size:12px;color:var(--muted)}
 .open a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:3px}
 .open a:hover{color:var(--ink);text-decoration-color:currentColor}
+/* Answer buttons: links styled as buttons, so they still open the form when scripts are off. */
+.send{margin-top:auto;padding:12px 16px 16px;border-top:1px solid var(--rule);margin-top:14px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{flex:1 1 160px;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.02em;text-decoration:none;border-radius:4px;border:1px solid var(--rule);background:transparent;color:var(--ink)}
+.btn:hover{border-color:var(--ink)}
+.btn.go{border-color:var(--ink);font-weight:700}
+.btn:focus-visible,.fb a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.general .send{border-top:0;padding:0;margin-top:14px}
+.general .btns{max-width:340px}
+.fb{margin:10px 0 0;font-family:var(--display);font-weight:500;font-size:12px;line-height:1.45;color:var(--muted)}
+.fb a{color:var(--ink);text-underline-offset:3px}
 footer{margin-top:32px;font-size:13px;color:var(--muted);max-width:90ch}
 .copyright{margin-top:10px;font-family:var(--display);font-weight:500;font-size:12px;line-height:1.45;color:var(--muted);max-width:90ch}
 /* Phones: a thinner mat so the board fills more of the screen. */
-@media (max-width:480px){.proof{padding:0 10px}.mat{padding:10px}}
+@media (max-width:480px){.proof{padding:0 10px}.mat{padding:10px}.send{padding:12px 10px 14px}}
 </style>
 </head>
 <body>
@@ -55,14 +66,13 @@ footer{margin-top:32px;font-size:13px;color:var(--muted);max-width:90ch}
   <header class="top">
     <div class="eyebrow">GWU Online · Lamar Billboards 2026–27 · Client Proof — Round 2</div>
     <h1>GWU ONLINE</h1>
-    <p class="lede">Please review the proofs below and send your comments to Wilson Brooks by email.</p>
+    <p class="lede">Please review the proofs below. Under each board, press Approve or Request changes. A short form opens in a new tab: add a note if you like, then press Submit there. To mark up a board, email a screenshot to Wilson Brooks.</p>
   </header>
 
   <section class="part" aria-labelledby="h-page">
     <h2 id="h-page">Billboard concepts</h2>
     <p class="intro">Bulletin 10′6″ × 36′. Other board sizes follow once a concept is chosen.</p>
     <div class="grid">
-
       <article class="card" aria-labelledby="t-1">
         <div class="card-h"><div class="num">1</div>
           <p class="ttl" id="t-1"><small>Billboard</small>Busy Life. Big Goals. · mom at her home desk</p></div>
@@ -71,6 +81,7 @@ footer{margin-top:32px;font-size:13px;color:var(--muted);max-width:90ch}
           <div class="mat"><a href="images/a9-1-mom-home-desk-toddler_2700.jpg"><img src="images/a9-1-mom-home-desk-toddler_1200.jpg" srcset="images/a9-1-mom-home-desk-toddler_1200.jpg 1200w, images/a9-1-mom-home-desk-toddler_2700.jpg 2700w" sizes="(min-width: 1300px) 600px, 100vw" width="2700" height="788" alt="Busy Life. Big Goals. · mom at her home desk: billboard proof"></a></div>
           <div class="open"><a href="images/a9-1-mom-home-desk-toddler_2700.jpg">Open full size</a></div>
         </div>
+        <div class="send" data-send><div class="btns"><a class="btn go" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%201%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%201%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20mom%20at%20her%20home%20desk%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Approve: board 1, Busy Life. Big Goals. · mom at her home desk">Approve</a><a class="btn" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%201%20%C2%B7%20Request%20changes&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%201%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20mom%20at%20her%20home%20desk%20%C2%B7%20Client%20chose%3A%20Request%20changes&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Request changes: board 1, Busy Life. Big Goals. · mom at her home desk">Request changes</a></div><p class="fb" hidden>The form opened in a new tab. If it didn't, <a href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%201%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%201%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20mom%20at%20her%20home%20desk%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener">open it here</a>.</p></div>
       </article>
 
       <article class="card" aria-labelledby="t-2">
@@ -81,6 +92,7 @@ footer{margin-top:32px;font-size:13px;color:var(--muted);max-width:90ch}
           <div class="mat"><a href="images/a9-2-woman-home-office_2700.jpg"><img src="images/a9-2-woman-home-office_1200.jpg" srcset="images/a9-2-woman-home-office_1200.jpg 1200w, images/a9-2-woman-home-office_2700.jpg 2700w" sizes="(min-width: 1300px) 600px, 100vw" width="2700" height="788" alt="Busy Life. Big Goals. · home office: billboard proof" loading="lazy"></a></div>
           <div class="open"><a href="images/a9-2-woman-home-office_2700.jpg">Open full size</a></div>
         </div>
+        <div class="send" data-send><div class="btns"><a class="btn go" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%202%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%202%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20home%20office%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Approve: board 2, Busy Life. Big Goals. · home office">Approve</a><a class="btn" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%202%20%C2%B7%20Request%20changes&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%202%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20home%20office%20%C2%B7%20Client%20chose%3A%20Request%20changes&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Request changes: board 2, Busy Life. Big Goals. · home office">Request changes</a></div><p class="fb" hidden>The form opened in a new tab. If it didn't, <a href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%202%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%202%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20home%20office%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener">open it here</a>.</p></div>
       </article>
 
       <article class="card" aria-labelledby="t-3">
@@ -91,6 +103,7 @@ footer{margin-top:32px;font-size:13px;color:var(--muted);max-width:90ch}
           <div class="mat"><a href="images/a9-3-bus-stop-zoomed-out_2700.jpg"><img src="images/a9-3-bus-stop-zoomed-out_1200.jpg" srcset="images/a9-3-bus-stop-zoomed-out_1200.jpg 1200w, images/a9-3-bus-stop-zoomed-out_2700.jpg 2700w" sizes="(min-width: 1300px) 600px, 100vw" width="2700" height="788" alt="Busy Life. Big Goals. · bus stop: billboard proof" loading="lazy"></a></div>
           <div class="open"><a href="images/a9-3-bus-stop-zoomed-out_2700.jpg">Open full size</a></div>
         </div>
+        <div class="send" data-send><div class="btns"><a class="btn go" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%203%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%203%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20bus%20stop%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Approve: board 3, Busy Life. Big Goals. · bus stop">Approve</a><a class="btn" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%203%20%C2%B7%20Request%20changes&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%203%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20bus%20stop%20%C2%B7%20Client%20chose%3A%20Request%20changes&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Request changes: board 3, Busy Life. Big Goals. · bus stop">Request changes</a></div><p class="fb" hidden>The form opened in a new tab. If it didn't, <a href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%203%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%203%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20bus%20stop%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener">open it here</a>.</p></div>
       </article>
 
       <article class="card" aria-labelledby="t-4">
@@ -101,13 +114,30 @@ footer{margin-top:32px;font-size:13px;color:var(--muted);max-width:90ch}
           <div class="mat"><a href="images/a9-4-mom-kitchen-island_2700.jpg"><img src="images/a9-4-mom-kitchen-island_1200.jpg" srcset="images/a9-4-mom-kitchen-island_1200.jpg 1200w, images/a9-4-mom-kitchen-island_2700.jpg 2700w" sizes="(min-width: 1300px) 600px, 100vw" width="2700" height="788" alt="Busy Life. Big Goals. · mom at the kitchen island: billboard proof" loading="lazy"></a></div>
           <div class="open"><a href="images/a9-4-mom-kitchen-island_2700.jpg">Open full size</a></div>
         </div>
+        <div class="send" data-send><div class="btns"><a class="btn go" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%204%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%204%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20mom%20at%20the%20kitchen%20island%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Approve: board 4, Busy Life. Big Goals. · mom at the kitchen island">Approve</a><a class="btn" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%204%20%C2%B7%20Request%20changes&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%204%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20mom%20at%20the%20kitchen%20island%20%C2%B7%20Client%20chose%3A%20Request%20changes&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="Request changes: board 4, Busy Life. Big Goals. · mom at the kitchen island">Request changes</a></div><p class="fb" hidden>The form opened in a new tab. If it didn't, <a href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%204%20%C2%B7%20Approve&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20Board%204%20of%204%3A%20Busy%20Life.%20Big%20Goals.%20%C2%B7%20mom%20at%20the%20kitchen%20island%20%C2%B7%20Client%20chose%3A%20Approve&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener">open it here</a>.</p></div>
       </article>
-
     </div>
+  </section>
+
+  <section class="part general" aria-labelledby="h-gen">
+    <h2 id="h-gen">General comments</h2>
+    <p class="intro">Anything about the set as a whole? Press the button, write it in the form, then press Submit.</p>
+    <div class="send" data-send><div class="btns"><a class="btn" data-form href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20General%20comment&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20General%20comment%20on%20the%20whole%20set%20%284%20boards%29&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener" aria-label="General comment on the whole set">General comment</a></div><p class="fb" hidden>The form opened in a new tab. If it didn't, <a href="https://airtable.com/appgwtTBOZekJnykB/shry53vyYkNtwVqdI?prefill_Action=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20General%20comment&amp;hide_Action=true&amp;prefill_Detail=GWU%20Online%20Client%20Proof%20R2%20%C2%B7%20General%20comment%20on%20the%20whole%20set%20%284%20boards%29&amp;hide_Detail=true&amp;prefill_Review%20Link=https%3A%2F%2Fwilsonwbrooks-bot.github.io%2Fimx-proofs%2Fgwu-online-r2-cd0o4x%2F&amp;hide_Review%20Link=true&amp;prefill_Kind=Client%20work&amp;hide_Kind=true&amp;prefill_Needs%20You%3F=Action%20Required&amp;hide_Needs%20You%3F=true&amp;prefill_Reply%20To=OPR-CCD&amp;hide_Reply%20To=true&amp;prefill_Priority=Today&amp;hide_Priority=true&amp;prefill_Project%20Code=GWU-ONLINE-BILLBOARDS&amp;hide_Project%20Code=true" target="_blank" rel="noopener">open it here</a>.</p></div>
   </section>
 
   <footer>Proofs are shown at proofing scale (½″ = 1′, an 18 × 5.25 in live area), not at billboard size. They are for review only and are not print files.</footer>
   <p class="copyright">© 2026 Gardner-Webb University. All rights reserved. These proofs are confidential and for review only. They may not be copied, published or used without written permission.</p>
 </div>
+<script>
+/* Each answer button opens the pre-filled form in a new tab, then shows an "open it here" link in case the browser blocked the new tab. */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[data-form]'); if(!a) return;
+  if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+  e.preventDefault();
+  try{ window.open(a.href,'_blank','noopener'); }catch(_){}
+  var box=a.closest('[data-send]'), fb=box&&box.querySelector('.fb'), l=fb&&fb.querySelector('a');
+  if(l){ l.href=a.href; fb.hidden=false; }
+});
+</script>
 </body>
 </html>
